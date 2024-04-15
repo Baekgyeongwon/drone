@@ -6,10 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
-@Builder
 @Entity
 public class Diary extends BaseEntity {
     @Id
@@ -20,17 +17,6 @@ public class Diary extends BaseEntity {
 
     private Boolean isPublic;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "stream_id")
-    private Stream stream;
-
-    @OneToMany(mappedBy = "diary", cascade = CascadeType.ALL)
-    private List<DiaryPhoto> diaryPhotoList;
-
     public void update(String detail) {
         this.detail = detail;
     }
@@ -39,7 +25,4 @@ public class Diary extends BaseEntity {
         this.isPublic = isPublic;
     }
 
-    public void setDiaryPhoto(List<DiaryPhoto> diaryPhotoList) {
-        this.diaryPhotoList = diaryPhotoList;
-    }
 }

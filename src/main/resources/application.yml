@@ -1,9 +1,9 @@
 spring:
   datasource: 
-    url: jdbc:mysql://dayrecord.ctizjtx2utrj.ap-northeast-2.rds.amazonaws.com:3306/DayRecord
-    username: dayrecord
-    password: dayrecord!!^^
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mariadb://database-1.cra6qigkgda2.ap-northeast-2.rds.amazonaws.com:3306/drone
+    username: admin
+    password: Ruddnjs0706!
+    driver-class-name: org.mariadb.jdbc.Driver
   jwt:
     secret:
     issuer:
@@ -20,11 +20,5 @@ spring:
         hbm2ddl:
           auto: update
         default_batch_fetch_size: 1000
-  mail:
-    host: test
-    username: user
-    password: password
-    protocol: smtp
-    port: 465
 
 server:
