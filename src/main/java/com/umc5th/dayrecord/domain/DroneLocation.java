@@ -6,8 +6,12 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
 @Entity
-@NoArgsConstructor
 public class DroneLocation extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +22,7 @@ public class DroneLocation extends BaseEntity {
     private float longitude;
     //시작 = 1 , 종료 = 0ㄴㄴ
     private boolean isStart;
-
+    @Builder
     public DroneLocation(float latitude, float longitude, boolean isStart){
         this.latitude = latitude;
         this.longitude =longitude;

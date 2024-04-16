@@ -11,5 +11,5 @@ public interface PostQueryService {
 
     Post save_post(String title, String detail);
 
-    List<Post> get_posts();
+    Post get_posts();
 }

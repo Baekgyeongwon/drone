@@ -25,8 +25,9 @@ public class PostQueryServiceImpl implements PostQueryService {
         
         return postRepository.save(po);
     }
-    public List<Post> get_posts(){
-        return postRepository.findAll();
+    public Post get_posts(){
+        List<Post> poList = postRepository.findAll();
+        return poList.get(0);
     }
  
     

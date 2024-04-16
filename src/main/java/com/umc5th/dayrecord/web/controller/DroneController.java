@@ -19,6 +19,7 @@ import com.umc5th.dayrecord.domain.Post;
 import com.umc5th.dayrecord.service.DiaryService.DroneLocationQueryService;
 import com.umc5th.dayrecord.service.DiaryService.PostQueryService;
 import com.umc5th.dayrecord.web.dto.DroneLocationDTO.DroneLocationResponseDTO;
+import com.umc5th.dayrecord.web.dto.PostDTO.PostResponseDTO;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -36,15 +37,14 @@ public class DroneController {
     public ApiResponse<Post> getPostCreate(
         @RequestParam(name = "title") String title,
         @RequestParam(name = "detail") String detail) {
-        System.out.println("TEST");
         Post po =  postQueryService.save_post(title, detail);
         return ApiResponse.onSuccess(po);
     }
 
 
     @GetMapping("/post/last")
-    public ApiResponse<List<Post> > getPostList() {
-        List<Post> po =  postQueryService.get_posts();
+    public ApiResponse<Post> getPostList() {
+        Post po =  postQueryService.get_posts();
         return ApiResponse.onSuccess(po);
     }
 
@@ -54,7 +54,6 @@ public class DroneController {
         @RequestParam(name = "longitude") float longitude,
         @RequestParam(name = "isStart") int isStart
         ) {
-            System.out.println("TEST");
             DroneLocation dl =  droneLocationQueryService.save_dl(latitude, longitude, isStart==1);
         // System.out.println("userId"+ request.getUserId());
         return ApiResponse.onSuccess(dl);
