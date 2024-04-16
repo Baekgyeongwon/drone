@@ -4,9 +4,8 @@ import com.umc5th.dayrecord.domain.common.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor 
 @Entity
 public class Post extends BaseEntity {
     @Id
@@ -16,8 +15,9 @@ public class Post extends BaseEntity {
 
     private String detail;
 
-    public void update(String detail) {
-        this.detail = detail;
+    public Post(String title, String detail){
+        this.title = title;
+        this.detail =detail;
     }
 
 }
