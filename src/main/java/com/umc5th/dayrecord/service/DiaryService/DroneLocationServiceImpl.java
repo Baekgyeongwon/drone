@@ -3,7 +3,10 @@ package com.umc5th.dayrecord.service.DiaryService;
 import com.umc5th.dayrecord.apiPayload.code.status.ErrorStatus;
 import com.umc5th.dayrecord.apiPayload.exception.handler.DiaryHandler;
 import com.umc5th.dayrecord.domain.Diary;
+import com.umc5th.dayrecord.domain.DroneLocation;
 import com.umc5th.dayrecord.repository.DiaryRepository;
+import com.umc5th.dayrecord.repository.DroneLocationRepository;
+
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -15,20 +18,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class DiaryQueryServiceImpl implements DiaryQueryService {
+public class DroneLocationServiceImpl implements DroneLocationQueryService {
 
-    private final DiaryRepository diaryRepository;
+    private final DroneLocationRepository droneLocationRepository;
 
-    @Override
-    public boolean existById(Long diaryId) {
-        return diaryRepository.existsById(diaryId);
+    @Override 
+    public DroneLocation save(float latitude,float longitude,boolean isStart) {
+        DroneLocation dl = new DroneLocation(latitude, longitude, isStart);
+        
+        return droneLocationRepository.save(dl);
     }
-
-
-    @Override
-    public Diary findDiary(Long streamId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findDiary'");
-    }
+ 
     
 }
