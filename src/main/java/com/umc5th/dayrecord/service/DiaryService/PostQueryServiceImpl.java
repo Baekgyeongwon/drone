@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 
 @Service
@@ -26,8 +27,8 @@ public class PostQueryServiceImpl implements PostQueryService {
         return postRepository.save(po);
     }
     public Post get_posts(){
-        List<Post> poList = postRepository.findAll();
-        return poList.get(0);
+        Slice<Post> poList = postRepository.findAllByOrderByIdDesc();
+        return poList.toList().get(0);
     }
  
     

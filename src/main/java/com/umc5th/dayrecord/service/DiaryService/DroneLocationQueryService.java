@@ -7,6 +7,7 @@ public interface DroneLocationQueryService {
 
 
     DroneLocation save_dl(float latitude,float longitude,boolean isStart);
+    DroneLocation get_dl();
 
-
+    
 }
