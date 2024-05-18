@@ -51,8 +51,8 @@ public class DroneController {
 
     @PostMapping("/location")
     public ApiResponse<DroneLocation>  putDroneLocation( 
-        @RequestParam(name = "latitude") float latitude,
-        @RequestParam(name = "longitude") float longitude,
+        @RequestParam(name = "latitude") double latitude,
+        @RequestParam(name = "longitude") double longitude,
         @RequestParam(name = "isStart") int isStart
         ) {
             DroneLocation dl =  droneLocationQueryService.save_dl(latitude, longitude, isStart==1);

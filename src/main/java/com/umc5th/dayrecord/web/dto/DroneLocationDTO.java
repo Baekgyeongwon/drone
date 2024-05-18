@@ -18,9 +18,9 @@ public class DroneLocationDTO {
     public static class DroneLocationResponseDTO {
         private Long id;
         //위도
-        private float latitude;
+        private double latitude;
         //경도
-        private float longitude;
+        private double longitude;
         //시작 = 1 , 종료 = 0
         private boolean isStart;
     }

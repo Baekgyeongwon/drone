@@ -16,7 +16,7 @@ public class DroneLocationServiceImpl implements DroneLocationQueryService {
     private final DroneLocationRepository droneLocationRepository;
 
     @Override 
-    public DroneLocation save_dl(float latitude,float longitude,boolean isStart) {
+    public DroneLocation save_dl(double latitude, double longitude,boolean isStart) {
         DroneLocation dl = new DroneLocation(latitude, longitude, isStart);
         
         return droneLocationRepository.save(dl);

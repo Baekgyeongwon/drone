@@ -17,13 +17,13 @@ public class DroneLocation extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     //위도
-    private float latitude;
+    private double latitude;
     //경도
-    private float longitude;
+    private double longitude;
     //시작 = 1 , 종료 = 0ㄴㄴ
     private boolean isStart;
     @Builder
-    public DroneLocation(float latitude, float longitude, boolean isStart){
+    public DroneLocation(double latitude, double longitude, boolean isStart){
         this.latitude = latitude;
         this.longitude =longitude;
         this.isStart = isStart;
